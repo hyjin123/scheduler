@@ -13,7 +13,7 @@ export default function Form(props) {
   
   const cancel = () => {
     reset();
-    return props.onCancel();
+    props.onCancel();
   };
 
   return (
@@ -44,3 +44,16 @@ export default function Form(props) {
     </main>
   );
 }
+
+// () => cancel()
+// use annonymous functions when you need to pass an argument
+// otherwise PASS the function by reference to be used..
+// reason why we have to call the function props.oncancel is
+// because we need to invoke the function ourselves when onclick
+// happens
+
+// under Button component
+// onClick={() => {
+  //   reset();
+  //   return props.onCancel;
+  // };}

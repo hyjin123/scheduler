@@ -107,6 +107,7 @@ export default function Application(props) {
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
+        // interviewer={state.appointments[appointment.id].interview.interviewer}
       />
     );
   });

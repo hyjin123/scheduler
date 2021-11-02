@@ -25,6 +25,29 @@ export default function useApplicationData(initial) {
     });
   }, []);
 
+  // function update the remaining spots
+  const updateSpots = (state, appointments, id) => {
+    // find the appointments for the day and set it to variable
+    let appointments1 = [];
+    let index = 0;
+    for (const day of state.days) {
+      if (day.appointments.includes(id)) {
+        appointments1 = [...day.appointments];
+        index = day.id - 1;
+      }
+    }
+    let counter = 0;
+    for (const appointment of appointments1) {
+      if (appointments[appointment].interview === null) {
+        counter++;
+      }
+    }
+    // this creates a DEEP copy and not just shallow copy...[...state.days] makes a shallow copy
+    let newDaysArray = state.days.map(a => {return {...a}})
+    newDaysArray[index].spots = counter;
+    return newDaysArray;
+  };
+
   // updates the day state with the new day
   const setDay = (day) => {
     setState({ ...state, day });
@@ -48,9 +71,11 @@ export default function useApplicationData(initial) {
         interview,
       })
       .then((res) => {
+        const days = updateSpots(state, appointments, id)
         setState((prev) => ({
           ...prev,
           appointments,
+          days
         }));
       });
   };
@@ -71,9 +96,11 @@ export default function useApplicationData(initial) {
     return axios
       .delete(`http://localhost:8001/api/appointments/${id}`)
       .then((res) => {
+        const days = updateSpots(state, appointments, id)
         setState((prev) => ({
           ...prev,
           appointments,
+          days
         }));
       });
   };

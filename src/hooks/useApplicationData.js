@@ -42,8 +42,21 @@ export default function useApplicationData(initial) {
         counter++;
       }
     }
+    const day = {
+      ...state.days[index],
+      spots: counter
+    }
+    const daysArray = [
+      ...state.days
+    ]
+    daysArray[index] = day
+    return daysArray;
+
+    // ALTERNATIVE WAY TO MAKE A DEEP COPY
     // this creates a DEEP copy and not just shallow copy...[...state.days] makes a shallow copy
     let newDaysArray = state.days.map(a => {return {...a}})
+    // this creates a shallow copy
+    // let newDaysArray = [...state.days]
     newDaysArray[index].spots = counter;
     return newDaysArray;
   };

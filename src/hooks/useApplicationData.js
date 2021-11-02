@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData(initial) {
@@ -54,11 +54,11 @@ export default function useApplicationData(initial) {
 
     // ALTERNATIVE WAY TO MAKE A DEEP COPY
     // this creates a DEEP copy and not just shallow copy...[...state.days] makes a shallow copy
-    let newDaysArray = state.days.map(a => {return {...a}})
+    // let newDaysArray = state.days.map(a => {return {...a}})
     // this creates a shallow copy
     // let newDaysArray = [...state.days]
-    newDaysArray[index].spots = counter;
-    return newDaysArray;
+    // newDaysArray[index].spots = counter;
+    // return newDaysArray;
   };
 
   // updates the day state with the new day

@@ -8,12 +8,17 @@ Jest and Cypress tests are used through the development of this project.
 
 ## Final Product
 
-!["Screenshot of the Main App"]()
+This is the main page of the Interview Scheduler!
+!["Screenshot of the Main App"](https://github.com/hyjin123/scheduler/blob/master/docs/Application-Main-Page.png?raw=true)
 
-!["Screenshot of the Appointment Form"]()
+You are able to create appointments.
+!["Screenshot of the Appointment Form"](https://github.com/hyjin123/scheduler/blob/master/docs/Create-Appointment.png?raw=true)
 
-!["Screenshot of Delete Confirmation"]()
+You are able to delete existing appointments
+!["Screenshot of Delete Confirmation"](https://github.com/hyjin123/scheduler/blob/master/docs/Delete-Confirmation.png?raw=true)
 
+You are able to edit existing appointments
+!["Screenshot of Edit Appointment"](https://github.com/hyjin123/scheduler/blob/master/docs/Edit-Form.png?raw=true)
 
 ## Getting Started
 

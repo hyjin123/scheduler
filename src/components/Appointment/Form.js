@@ -6,7 +6,6 @@ export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
-  const [interviewerError, setInterviewerError] = useState("");
   
   // if student saves appointment with no input or unselected interviewer, setError, otherwise, invoke onSave
   const validate = () => {
@@ -14,13 +13,7 @@ export default function Form(props) {
       setError("Student name cannot be blank");
       return;
     }
-    // if (interviewer === null) {
-    //   setError("")
-    //   setInterviewerError("You must select an interviewer");
-    //   return;
-    // }
     setError("");
-    setInterviewerError("");
     props.onSave(student, interviewer);
   };
 
@@ -32,7 +25,6 @@ export default function Form(props) {
   const cancel = () => {
     reset();
     setError("");
-    setInterviewerError("");
     props.onCancel();
   };
 
@@ -51,9 +43,6 @@ export default function Form(props) {
           />
           <section className="appointment__validation">
             {error}
-          </section>
-          <section className="appointment__validation">
-            {interviewerError}
           </section>
         </form>
         <InterviewerList
